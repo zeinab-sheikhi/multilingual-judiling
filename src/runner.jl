@@ -54,7 +54,7 @@ function run_learn_algo(file_name; data_path="data/raw", title="", split_size=0.
 end
 
 
-function run_build_algo(file_name; data_path="data/raw", title="", split_size=0.1)
+function run_build_algo(file_name; data_path="data/raw", title="", split_size=0.1, output_file_name="res")
     
     data = read_csv(data_path, file_name)
     train, val = train_test_split(data, split_size=split_size)
@@ -85,7 +85,9 @@ function run_build_algo(file_name; data_path="data/raw", title="", split_size=0.
     acc_build_train = array_accuracy(res_build_train, res["gold_ind_train"])
     acc_build_val = array_accuracy(res_build_val, res["gold_ind_val"])
     
-    write_to_csv(res_build_val, val, res["cue_train"], res["cue_train"], "res")
+    write_to_csv(res_build_val, val, res["cue_train"], res["cue_train"], output_file_name)
+
+
 #     JudiLing.write2csv(
 #     res_build_train,
 #     train,
