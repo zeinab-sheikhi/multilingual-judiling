@@ -3,8 +3,8 @@ using Random
 using JudiLing
 
 
-include("../model/build_matrix.jl")
-include("../model/evaluation.jl")
+include("./model/build_matrix.jl")
+include("./model/evaluation.jl")
 
 
 function read_csv(file_path, file_name)
